@@ -12,11 +12,11 @@ else $now = time();
 $day = 60 * 60 * 24;
 $page_worth = $day * 9;
 $limit = $now - $page_worth;
-
+$pandemic_start = 1584374481;
+$pandemic_end   = 9584374481;
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<!-- I enjoyed working the Twitter's bootstrap framework  http://twitter.github.com/bootstrap/ -->
   <head>
     <meta charset="utf-8">
     <title>Matt Clare's Lunch Blog</title>
@@ -31,7 +31,6 @@ $limit = $now - $page_worth;
     <meta property="og:site_name" content="Matt Clare's Lunch Blog" />
 
 
-    <!-- Le styles -->
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
       body {
@@ -45,26 +44,19 @@ $limit = $now - $page_worth;
 	}
 	.span4{
 		min-height:400px;
-		background: #E6E6E6 url('images/lunch.jpg') no-repeat top center;
 	}
+  .lunch {background: #E6E6E6 url('images/lunch.jpg') no-repeat;}
+  .lunch-pandemic {background: #E6E6E6 url('images/pandemic-lunch-small.jpg') no-repeat;}
 	.span4 h2 {background-color: #DDD;}
-
-	.reflection{padding-top:310px;}
+	.reflection{margin-top:310px;height:60px;background: #E6E6E6;font-size:125%}
 	footer {text-align:center;}
     </style>
 
 <?PHP
 
-$styles =array("background: #E6E6E6 url('images/lunch.jpg') no-repeat top left;","background: #E6E6E6 url('images/lunch.jpg') no-repeat top center;","background: #E6E6E6 url('images/lunch.jpg') no-repeat top right;");
+$styles =array("background-position: left center;","background-position: left;","background-position: right bottom;","background-position: right top;","background-position: center bottom;");
 ?>
     <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="/favicon.ico">
 
   </head>
@@ -107,7 +99,6 @@ $styles =array("background: #E6E6E6 url('images/lunch.jpg') no-repeat top left;"
 		for ($i = $now;$i > $limit; $i-= $day) {
 
 
-
 			if (date('l',$i) == 'Saturday' || date('l',$i) == 'Sunday') $limit -= $day;
 			else {
 				if ($now == $i && date('H') < 12) {}
@@ -120,10 +111,12 @@ $styles =array("background: #E6E6E6 url('images/lunch.jpg') no-repeat top left;"
 				}
 				$j = $t;
 
-
-				echo " <div class=\"span4\" style=\"".$styles[floor(rand(0,2))]."\">
+				echo " <div class=\"span4";
+        if ($now > $pandemic_start && $now < $pandemic_end ) echo " lunch-pandemic";
+        else echo " lunch";
+        echo "\" style=\"".$styles[floor(rand(0,count($styles)))]."\">
 			          <h2>".date("F j, Y",$i)."</h2>
-			           <p class=\"reflection\">A picture of my lunch from ".date('l',$i).". It was $descriptors[$j].</p>
+                <div class=\"reflection\">A picture of my lunch from ".date('l',$i).". It was $descriptors[$j].</div>
 			       </div>";
 			}
 			}
@@ -132,20 +125,18 @@ $styles =array("background: #E6E6E6 url('images/lunch.jpg') no-repeat top left;"
 
 		?>
       </div>
-
-      <hr>
-
+      <hr />
       <footer>
         <p>A <a href="http://mattclare.ca">MattClare.ca</a> project.  You might want to read my non-food blog at <a href="http://mattclare.ca/blog">mattclare.ca/blog</a> or follow me on Twitter as <a href="http://twitter.com/mattclare">@mattclare</a>.</p>
-
-
 		<?PHP
-		echo "<p><a href=\"$_SERVER[PHP_SELF]?t=$limit\" class=\"btn btn-primary\"  role=\"button\">Older Posts</a>";
-
-
+    $previous_month = strtotime(date("Y-n-j",$now).' last day of previous month');
+    $next_month = strtotime(date("Y-n-j",$now).' first day of next month');
+		echo "<p><a href=\"$_SERVER[PHP_SELF]?t=$previous_month\" class=\"btn btn-primary\"  role=\"button\">Previous Month</a>
+    <a href=\"$_SERVER[PHP_SELF]?t=$limit\" class=\"btn btn-primary\"  role=\"button\">10 Older Posts</a>";
 		if ($now <= time() - $day) {
 			$next = $now + $page_worth + $day + $day;
-			echo " | <a href=\"$_SERVER[PHP_SELF]?t=$next\" class=\"btn btn-primary\"  role=\"button\">Newer Posts</a>";
+			echo " | <a href=\"$_SERVER[PHP_SELF]?t=$next\" class=\"btn btn-primary\"  role=\"button\">10 Newer Posts</a>";
+      echo " <a href=\"$_SERVER[PHP_SELF]?t=  $next_month\" class=\"btn btn-primary\"  role=\"button\">Next Month</a>";
 		};
 		?>
 		</p>
