@@ -23,11 +23,11 @@ $pandemic_end   = 9584374481;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A blog of what Matt Clare eats for lunch">
     <meta name="author" content="Matt Clare">
-    <meta itemprop="image" content="http://mattclare.ca/lunch-blog/images/lunch.jpg">
+    <meta itemprop="image" content="https://mattclare.ca/lunch-blog/images/lunch.jpg">
     <meta property="og:title" content="Matt Clare's Lunch Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://mattclare.ca/lunch-blog" />
-    <meta property="og:image" content="http://mattclare.ca/lunch-blog/images/lunch.jpg" />
+    <meta property="og:url" content="https://mattclare.ca/lunch-blog" />
+    <meta property="og:image" content="https://mattclare.ca/lunch-blog/images/lunch.jpg" />
     <meta property="og:site_name" content="Matt Clare's Lunch Blog" />
 
 
@@ -76,8 +76,8 @@ $styles =array("background-position: left center;","background-position: left;",
 		 <div class="nav-collapse">
             <ul class="nav">
               <li class="active"><a href="#">Home</a></li>
-              <li><a href="http://mattclare.ca/blog">mattclare.ca/blog</a></li>
-              <li><a href="http://twitter.com/mattclare">@mattclare</a></li>
+              <li><a href="https://mattclare.ca/blog">mattclare.ca/blog</a></li>
+              <li><a href="https://twitter.com/mattclare">@mattclare</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -127,7 +127,7 @@ $styles =array("background-position: left center;","background-position: left;",
       </div>
       <hr />
       <footer>
-        <p>A <a href="http://mattclare.ca">MattClare.ca</a> project.  You might want to read my non-food blog at <a href="http://mattclare.ca/blog">mattclare.ca/blog</a> or follow me on Twitter as <a href="http://twitter.com/mattclare">@mattclare</a>.</p>
+        <p>A <a href="https://mattclare.ca">MattClare.ca</a> project.  You might want to read my non-food blog at <a href="https://mattclare.ca/blog">mattclare.ca/blog</a> or follow me on Twitter as <a href="https://twitter.com/mattclare">@mattclare</a>.</p>
 		<?PHP
     $previous_month = strtotime(date("Y-n-j",$now).' last day of previous month');
     $next_month = strtotime(date("Y-n-j",$now).' first day of next month');
