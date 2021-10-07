@@ -101,13 +101,17 @@ $pandemic_end   = 9584374481;
 
     echo " <div class=\"span4";
     //pandemic work from home, or work from campus?
-    if ($now > $pandemic_start && $now < $pandemic_end) echo " lunch-pandemic";
-      else echo " lunch";
-      echo "\" style=\"".$styles[floor(rand(0,count($styles)))]."\">
-          <h2>".date("F j, Y",$i)."</h2>
-              <div class=\"reflection\">A picture of my lunch from ".date('l',$i).". It was $descriptors[$j].</div>
-       </div>";
-       }
+    if ($now > $pandemic_start && $now < $pandemic_end) {
+        //More pandemic related logic
+        if($now > 1631036467 && (date("l",$i) == "Tuesday" || date("l",$i) == "Thursday")) echo " lunch";
+        else echo " lunch-pandemic";
+      }
+    else echo " lunch";
+    echo "\" style=\"".$styles[floor(rand(0,count($styles)))]."\">
+        <h2>".date("F j, Y",$i)."</h2>
+            <div class=\"reflection\"><strong>".date("l",$i).":</strong> A picture of my lunch from ".date('l',$i).". It was $descriptors[$j].</div>
+     </div>";
+     }
     }
   }
 
