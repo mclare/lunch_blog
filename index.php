@@ -92,23 +92,23 @@ $pandemic_end   = 9584374481;
   if (date('l',$i) == 'Saturday' || date('l',$i) == 'Sunday') $limit -= $day;
   else {
     if ($now == $i && date('H') < 12) {}
-  else {
-    $t = floor(rand(0,count($descriptors)-1));
-    while ($j == $t) {
-    $t = floor(rand(0,count($descriptors)-1));
-  }
-  $j = $t;
+    else {
+      $t = floor(rand(0,count($descriptors)-1));
+      while ($j == $t) {
+      $t = floor(rand(0,count($descriptors)-1));
+    }
+    $j = $t;
 
-  echo " <div class=\"span4";
+    echo " <div class=\"span4";
     //pandemic work from home, or work from campus?
-    if ($now > $pandemic_start && $now < $pandemic_end && date("l") != "Tuesday"  && date("l") != "Thursday") echo " lunch-pandemic";
-    else echo " lunch";
-    echo "\" style=\"".$styles[floor(rand(0,count($styles)))]."\">
-        <h2>".date("F j, Y",$i)."</h2>
-            <div class=\"reflection\">A picture of my lunch from ".date('l',$i).". It was $descriptors[$j].</div>
-     </div>";
-  }
-  }
+    if ($now > $pandemic_start && $now < $pandemic_end) echo " lunch-pandemic";
+      else echo " lunch";
+      echo "\" style=\"".$styles[floor(rand(0,count($styles)))]."\">
+          <h2>".date("F j, Y",$i)."</h2>
+              <div class=\"reflection\">A picture of my lunch from ".date('l',$i).". It was $descriptors[$j].</div>
+       </div>";
+       }
+    }
   }
 
   ?>
