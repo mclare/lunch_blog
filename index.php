@@ -107,7 +107,7 @@ $pandemic_end   = 9584374481;
         else echo " lunch-pandemic";
       }
     else echo " lunch";
-    echo "\" style=\"".$styles[floor(rand(0,count($styles)))]."\">
+    echo "\" style=\"".$styles[floor(rand(0,count($styles)-1))]."\">
         <h2>".date("F j, Y",$i)."</h2>
             <div class=\"reflection\"><strong>".date("l",$i).":</strong> A picture of my lunch from ".date('l',$i).". It was $descriptors[$j].</div>
      </div>";
