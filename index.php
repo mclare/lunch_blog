@@ -13,7 +13,7 @@ $day = 60 * 60 * 24;
 $page_worth = $day * 9;
 $limit = $now - $page_worth;
 $pandemic_start = 1584374481;
-$pandemic_end   = 9584374481;
+$pandemic_end   = 1700000000;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -119,7 +119,7 @@ $pandemic_end   = 9584374481;
       </div>
       <hr />
       <footer>
-        <p>A <a href="https://mattclare.ca">MattClare.ca</a> project.  You might want to read my non-food blog at <a href="https://mattclare.ca/blog">mattclare.ca/blog</a> or follow me on Twitter as <a href="https://twitter.com/mattclare">@mattclare</a>.</p>
+        <p>A <a href="https://mattclare.ca">MattClare.ca</a> project.  You might want to read my non-food blog at <a href="https://mattclare.ca/blog">mattclare.ca/blog</a> or follow me on Twitter as <a href="https://bsky.app/profile/mattclare.bsky.social">@mattclare.bsky.social</a>.</p>
   <?PHP
     $previous_month = strtotime(date("Y-n-j",$now).' last day of previous month');
     $next_month = strtotime(date("Y-n-j",$now).' first day of next month');
@@ -138,9 +138,5 @@ $pandemic_end   = 9584374481;
       </footer>
 
     </div> <!-- /container -->
-
-<?PHP
-@include('../inc/code.php');
-@google_track(); ?>
   </body>
 </html>
