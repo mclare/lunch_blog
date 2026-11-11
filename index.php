@@ -23,12 +23,13 @@ $pandemic_end   = 1700000000;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A blog of what Matt Clare eats for lunch">
     <meta name="author" content="Matt Clare">
-    <meta itemprop="image" content="https://mattclare.ca/lunch-blog/images/lunch.jpg">
+    <meta itemprop="image" content="https://mattclare.ca/lunch_blog/images/lunch.jpg">
     <meta property="og:title" content="Matt Clare's Lunch Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://mattclare.ca/lunch-blog" />
-    <meta property="og:image" content="https://mattclare.ca/lunch-blog/images/lunch.jpg" />
+    <meta property="og:url" content="https://mattclare.ca/lunch_blog" />
+    <meta property="og:image" content="https://mattclare.ca/lunch_blog/images/lunch.jpg" />
     <meta property="og:site_name" content="Matt Clare's Lunch Blog" />
+    <link rel="canonical" href="https://mattclare.ca/lunch_blog/" />  
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
       body {
@@ -124,14 +125,14 @@ $pandemic_end   = 1700000000;
     $previous_month = strtotime(date("Y-n-j",$now).' last day of previous month');
     $next_month = strtotime(date("Y-n-j",$now).' first day of next month');
 
-  echo "<p><a href=\"$_SERVER[PHP_SELF]?t=$previous_month\" class=\"btn btn-primary\"  role=\"button\">Previous Month</a> <a href=\"$_SERVER[PHP_SELF]?t=$limit\" class=\"btn btn-primary\"  role=\"button\">10 Older Posts</a>";
+  echo "<p><a href=\"$_SERVER[PHP_SELF]?t=$previous_month\" class=\"btn btn-primary\"  role=\"button\">Previous Month</a> <a href=\"$_SERVER[PHP_SELF]?t=$limit\" class=\"btn btn-primary\" role=\"button\" rel=\"nofollow\">10 Older Posts</a>";
   if ($now <= time()-1) {
   	$next = $now + $page_worth + $day;
       if ($next_month > time() || $next > time()) {
           $next_month = time();
           $next = time();
         }
-  echo " | <a href=\"$_SERVER[PHP_SELF]?t=$next\" class=\"btn btn-primary\"  role=\"button\">10 Newer Posts</a> <a href=\"$_SERVER[PHP_SELF]?t=$next_month\" class=\"btn btn-primary\"  role=\"button\">Next Month</a>";
+  echo " | <a href=\"$_SERVER[PHP_SELF]?t=$next\" class=\"btn btn-primary\"  role=\"button\">10 Newer Posts</a> <a href=\"$_SERVER[PHP_SELF]?t=$next_month\" class=\"btn btn-primary\" role=\"button\" rel=\"nofollow\>Next Month</a>";
   };
   ?>
   </p>
