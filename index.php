@@ -69,7 +69,7 @@ $pandemic_end   = 1700000000;
             <ul class="nav">
               <li class="active"><a href="#">Home</a></li>
               <li><a href="https://mattclare.ca/blog">mattclare.ca/blog</a></li>
-              <li><a href="https://twitter.com/mattclare">@mattclare</a></li>
+              <li><a href="https://bsky.app/profile/mattclare.bsky.social">@mattclare.bsky.social</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -132,7 +132,7 @@ $pandemic_end   = 1700000000;
           $next_month = time();
           $next = time();
         }
-  echo " | <a href=\"$_SERVER[PHP_SELF]?t=$next\" class=\"btn btn-primary\"  role=\"button\">10 Newer Posts</a> <a href=\"$_SERVER[PHP_SELF]?t=$next_month\" class=\"btn btn-primary\" role=\"button\" rel=\"nofollow\>Next Month</a>";
+  echo " | <a href=\"$_SERVER[PHP_SELF]?t=$next\" class=\"btn btn-primary\"  role=\"button\">10 Newer Posts</a> <a href=\"$_SERVER[PHP_SELF]?t=$next_month\" class=\"btn btn-primary\" role=\"button\" rel=\"nofollow\">Next Month</a>";
   };
   ?>
   </p>
