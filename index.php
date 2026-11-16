@@ -125,14 +125,14 @@ $pandemic_end   = 1700000000;
     $previous_month = strtotime(date("Y-n-j",$now).' last day of previous month');
     $next_month = strtotime(date("Y-n-j",$now).' first day of next month');
 
-  echo "<p><a href=\"$_SERVER[PHP_SELF]?t=$previous_month\" class=\"btn btn-primary\"  role=\"button\">Previous Month</a> <a href=\"$_SERVER[PHP_SELF]?t=$limit\" class=\"btn btn-primary\" role=\"button\" rel=\"nofollow\">10 Older Posts</a>";
+  echo "<p><a href=\"$_SERVER[PHP_SELF]?t=$previous_month\" class=\"btn btn-primary\"  role=\"button\" rel=\"nofollow\">Previous Month</a> <a href=\"$_SERVER[PHP_SELF]?t=$limit\" class=\"btn btn-primary\" role=\"button\" rel=\"nofollow\">10 Older Posts</a>";
   if ($now <= time()-1) {
   	$next = $now + $page_worth + $day;
       if ($next_month > time() || $next > time()) {
           $next_month = time();
           $next = time();
         }
-  echo " | <a href=\"$_SERVER[PHP_SELF]?t=$next\" class=\"btn btn-primary\"  role=\"button\">10 Newer Posts</a> <a href=\"$_SERVER[PHP_SELF]?t=$next_month\" class=\"btn btn-primary\" role=\"button\" rel=\"nofollow\">Next Month</a>";
+  echo " | <a href=\"$_SERVER[PHP_SELF]?t=$next\" class=\"btn btn-primary\" role=\"button\" rel=\"nofollow\">10 Newer Posts</a> <a href=\"$_SERVER[PHP_SELF]?t=$next_month\" class=\"btn btn-primary\" role=\"button\" rel=\"nofollow\">Next Month</a>";
   };
   ?>
   </p>
